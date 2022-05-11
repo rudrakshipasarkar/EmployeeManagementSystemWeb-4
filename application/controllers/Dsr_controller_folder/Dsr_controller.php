@@ -97,9 +97,11 @@ class Dsr_controller extends CI_Controller {
 			$department = $user->dept_id;
 
 			if($department == "1"){
-				$d = ""
-			}else if(
-
+				$d = "CS"
+			}
+			else if($department == "2"){
+				$d = "IT"
+			}
 
 
 			redirect(base_url().'index.php/Dsr_controller_folder/Dsr_controller/dept_view?dept='.$d.'');

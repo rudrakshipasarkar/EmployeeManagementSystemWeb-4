@@ -32,7 +32,7 @@ a:hover, a:active {
       <table class="table">
           <thead>
               <tr>
-                  <th scope="col">Sr No.</th>
+                  <!--<th scope="col">Sr No.</th>-->
                   <th scope="col">Message</th>
                   <th scope="col">Message From</th>
                   <th scope="col">View Details</th>
@@ -44,7 +44,7 @@ a:hover, a:active {
   foreach($data as $row)
   {
   $srNO = $row->sr_no;
-  echo "<td>".$srNO."</td>";
+  //echo "<td>".$srNO."</td>";
   $msg = $row->message;
   echo "<td>".$msg."</td>";
   $msgFrom = $row->msg_from;
