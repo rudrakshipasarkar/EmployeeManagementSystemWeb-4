@@ -58,7 +58,7 @@ class EmployeeController extends CI_Controller
 
             if (!$this->upload->do_upload('pdf')) {
                 $error = $this->upload->display_errors();
-                $this->session->set_flashdata('msg', $error);
+                $this->session->set_flashdata('failure', $error);
 
                 $this->load->view('templates/header.php');
                 $this->load->view('templates/navbar.php');
@@ -98,10 +98,10 @@ class EmployeeController extends CI_Controller
                 );
 
                 if ($this->Employee_model->insert_training($data)) {
-                    $this->session->set_flashdata('msg', 'Training Applied Successfully');
+                    $this->session->set_flashdata('success', 'Training Applied Successfully');
                     redirect('Employee/EmployeeController/index');
                 } else {
-                    $this->session->set_flashdata('msg', 'Unable to Apply Training');
+                    $this->session->set_flashdata('failure', 'Unable to Apply Training');
                     redirect('Employee/EmployeeController/apply_training');
                 }
 
@@ -144,7 +144,7 @@ class EmployeeController extends CI_Controller
 
             if (!$this->upload->do_upload('pdf')) {
                 $error = $this->upload->display_errors();
-                $this->session->set_flashdata('msg', $error);
+                $this->session->set_flashdata('failure', $error);
 
                 $this->load->view('templates/header.php');
                 $this->load->view('templates/navbar.php');
@@ -184,10 +184,10 @@ class EmployeeController extends CI_Controller
                 );
 
                 if ($this->Employee_model->insert_training($data)) {
-                    $this->session->set_flashdata('msg', 'Training Added Successfully');
+                    $this->session->set_flashdata('success', 'Training Added Successfully');
                     redirect('Employee/EmployeeController/index');
                 } else {
-                    $this->session->set_flashdata('msg', 'Unable to Add Training');
+                    $this->session->set_flashdata('failure', 'Unable to Add Training');
                     redirect('Employee/EmployeeController/apply_training');
                 }
 
@@ -235,7 +235,7 @@ class EmployeeController extends CI_Controller
                 //experience pdf upload
                 if (!$this->upload->do_upload('certificate')) {
                     $error = $this->upload->display_errors();
-                    $this->session->set_flashdata('msg', $error);
+                    $this->session->set_flashdata('failure', $error);
                     $this->load->view('templates/header.php');
                     $this->load->view('templates/navbar.php');
                     $this->load->view('dashboard/employee/employee_sidebar.php');
@@ -246,7 +246,7 @@ class EmployeeController extends CI_Controller
                     $certificate = $this->upload->data('file_name');
                     $this->Employee_model->complete_training($training_id, $certificate);
 
-                    $this->session->set_flashdata('msg', "Training Completed Successfully");
+                    $this->session->set_flashdata('success', "Training Completed Successfully");
                     $this->load->view('templates/header.php');
                     $this->load->view('templates/navbar.php');
                     $this->load->view('dashboard/employee/employee_sidebar.php');
@@ -274,7 +274,7 @@ class EmployeeController extends CI_Controller
 
         if (!$this->upload->do_upload('pdf')) {
             $error = $this->upload->display_errors();
-            $this->session->set_flashdata('msg', $error);
+            $this->session->set_flashdata('failure', $error);
 
            $this->load->view('dashboard/employee/complete_training.php', $training);
 
@@ -283,7 +283,7 @@ class EmployeeController extends CI_Controller
             $pdf = $this->upload->data('file_name');
             
             $this->Employee_model->mark_training_complete($training_id, $pdf);
-            $this->session->set_flashdata('msg', "Training Completed Successfully");
+            $this->session->set_flashdata('success', "Training Completed Successfully");
 
             redirect('Employee/EmployeeController/show_applied_trainings');
         }

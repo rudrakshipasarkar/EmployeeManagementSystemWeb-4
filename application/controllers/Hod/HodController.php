@@ -116,15 +116,15 @@ class HodController extends CI_Controller
         }else if($training['training_status_id'] == 2){
             $this->session->set_flashdata('success', 'Training is Already Applied To Principal');
         }else if($training['training_status_id'] == 3){
-            $this->session->set_flashdata('msg', 'Training is Already Approved By HOD');
+            $this->session->set_flashdata('success', 'Training is Already Approved By HOD');
         }else if($training['training_status_id'] == 4){
-            $this->session->set_flashdata('msg', 'Training is Already Declined BY HOD');
+            $this->session->set_flashdata('failure', 'Training is Already Declined BY HOD');
         }else if($training['training_status_id'] == 5){
-            $this->session->set_flashdata('msg', 'Training is Already Approved By Principal');
+            $this->session->set_flashdata('success', 'Training is Already Approved By Principal');
         }else if($training['training_status_id'] == 6){
-            $this->session->set_flashdata('msg', 'Training is Already Declined By Principal');
+            $this->session->set_flashdata('failure', 'Training is Already Declined By Principal');
         }else{
-            $this->session->set_flashdata('msg', 'Training is Already Completed');
+            $this->session->set_flashdata('success', 'Training is Already Completed');
         }
 
         redirect("/Hod/HodController/show_applied_trainings");
@@ -135,20 +135,20 @@ class HodController extends CI_Controller
 
         //check all conditions
         if($training['training_status_id'] == 1){
-            $this->session->set_flashdata('msg', 'Application Decline Successfully');
+            $this->session->set_flashdata('success', 'Application Decline Successfully');
             $this->Hod_model->decline_training_application($training_id);
         }else if($training['training_status_id'] == 2){
-            $this->session->set_flashdata('msg', 'Training is Already Applied To Principal');
+            $this->session->set_flashdata('success', 'Training is Already Applied To Principal');
         }else if($training['training_status_id'] == 3){
-            $this->session->set_flashdata('msg', 'Training is Already Approved By HOD');
+            $this->session->set_flashdata('success', 'Training is Already Approved By HOD');
         }else if($training['training_status_id'] == 4){
-            $this->session->set_flashdata('msg', 'Training is Already Declined BY HOD');
+            $this->session->set_flashdata('failure', 'Training is Already Declined BY HOD');
         }else if($training['training_status_id'] == 5){
-            $this->session->set_flashdata('msg', 'Training is Already Approved By Principal');
+            $this->session->set_flashdata('success', 'Training is Already Approved By Principal');
         }else if($training['training_status_id'] == 6){
-            $this->session->set_flashdata('msg', 'Training is Already Declined By Principal');
+            $this->session->set_flashdata('failure', 'Training is Already Declined By Principal');
         }else{
-            $this->session->set_flashdata('msg', 'Training is Already Completed');
+            $this->session->set_flashdata('success', 'Training is Already Completed');
         }
 
         redirect("/Hod/HodController/show_applied_trainings");

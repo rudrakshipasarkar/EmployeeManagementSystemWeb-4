@@ -456,7 +456,7 @@ class RegisterController extends CI_Controller
                     $this->session->set_userdata('user_id', $user->sevarth_id);
                     $this->session->set_userdata('role_id', $user->role_id);
                     
-                    $this->session->set_flashdata('success', 'Login in Successful'); 
+                    $this->session->set_flashdata('success', 'Login Successful'); 
                     
                     // if user if not verified
                     // 0->not verified 1->verified
