@@ -21,9 +21,27 @@ class HomeController extends CI_Controller
     public function hod()
     {
         // echo "Hello";
+        $data['dept_id'] = $this->session->userdata('dept_id');
+        $data['dept'] = "";
+
+        // print_r( $data['dept_id']);
+
+        switch ( $data['dept_id']) {
+          case "1":
+            $data['dept']= "Computer";
+            break;
+          case "2":
+            $data['dept'] = "Electrical";
+            break;
+          case "3":
+            $data['dept'] = "IT";
+            break;
+          default:
+            $data['dept']= "Computer";  
+        }
         $this->load->view('templates/header.php');
         $this->load->view('templates/navbar.php');
-        $this->load->view('dashboard/hod/hod_sidebar.php');
+        $this->load->view('dashboard/hod/hod_sidebar.php',$data);
         $this->load->view('dashboard/hod/hod_dashboard.php');
         $this->load->view('templates/footer.php');
     }

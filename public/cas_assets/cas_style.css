@@ -1,0 +1,767 @@
+/*---------------------------------------Form Css-------------------------------------*/
+*{
+    margin: 0;
+    padding: 0
+}
+
+body{
+    /* background-color: #212529; */
+    background-color: rgba(71, 35, 217, 0.4);
+}
+
+html {
+    height: 100%
+}
+
+p {
+    color: grey
+}
+
+#heading {
+    text-transform: uppercase;
+    color: #673AB7;
+    font-weight: normal
+}
+
+#msform {
+    position: relative;
+    margin-top: 20px;
+}
+
+#msform fieldset {
+    background: rgba(52, 152, 219,0.1);
+    border: 1px solid rgba(52, 152, 219,0.4);
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding-bottom: 20px;
+    position: relative;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.form-card {
+    text-align: left
+}
+
+#msform fieldset:not(:first-of-type) {
+    display: none
+}
+
+#msform input,
+#msform textarea {
+    padding: 8px 15px 8px 15px;
+    border: 1px solid #95a5a6;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin-top: 2px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    color: #2C3E50;
+    background-color: #fff;
+    font-size: 16px;
+    letter-spacing: 1px
+}
+
+#msform input:focus,
+#msform textarea:focus {
+    box-shadow: 0;
+    border: 1px solid #673AB7;
+    outline-width: 0
+}
+
+#msform select{
+    border: 1px solid #95a5a6;
+    margin-top: 4px;
+    color: #2C3E50;
+}
+
+#msform .action-button {
+    width: 100px;
+    background: #673AB7;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 0px 10px 5px;
+    float: right
+}
+
+#msform .action-button:hover,
+#msform .action-button:focus {
+    background-color: #311B92
+}
+
+#msform .action-button-previous {
+    width: 100px;
+    background: #616161;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px 10px 0px;
+    float: right
+}
+
+#msform .action-button-previous:hover,
+#msform .action-button-previous:focus {
+    background-color: #000000
+}
+
+.card {
+    z-index: 0;
+    border: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: relative
+}   
+
+#progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    color: lightgrey
+}
+
+#progressbar .active {
+    color: #673AB7
+}
+
+#progressbar li {
+    list-style-type: none;
+    font-size: 15px;
+    width: 25%;
+    float: left;
+    text-align: center;
+    position: relative;
+    font-weight: 400
+}
+
+#progressbar #account:before {
+    font-family: FontAwesome;
+    content: "\f13e"
+}
+
+#progressbar #personal:before {
+    font-family: FontAwesome;
+    content: "\f007"
+}
+
+#progressbar #payment:before {
+    font-family: FontAwesome;
+    content: "\f030"
+}
+
+#progressbar #confirm:before {
+    font-family: FontAwesome;
+    content: "\f00c"
+}
+
+#progressbar li:before {
+    width: 50px;
+    height: 50px;
+    line-height: 45px;
+    display: block;
+    font-size: 20px;
+    color: #ffffff;
+    background: lightgray;
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
+    padding: 2px
+}
+
+#progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: lightgray;
+    position: absolute;
+    left: 0;
+    top: 25px;
+    z-index: -1
+}
+
+#progressbar li.active:before,
+#progressbar li.active:after {
+    background: #673AB7;
+}
+
+.progress {
+    height: 20px
+}
+
+.progress-bar {
+    background-color: #673AB7
+}
+
+#uploadbtn{
+    margin-top: 36px;
+    margin-left: 5px;
+    background: rgba(41, 128, 185,1.0);
+}
+
+.fs-title {
+    font-size: 25px;
+    color: #673AB7;
+    margin-bottom: 15px;
+    font-weight: normal;
+    text-align: center;
+    border: 1px solid rgba(52, 152, 219,0.3);
+    width: 250px;
+    margin-top: -18px;
+    border-radius: 5px;
+    background: rgba(52, 152, 219,1);
+    color: #fff;
+
+}
+
+.steps {
+    font-size: 25px;
+    color: gray;
+    margin-bottom: 10px;
+    font-weight: normal;
+    text-align: right
+}
+
+.purple-text {
+    color: #673AB7;
+    font-weight: normal
+}
+
+.form-label{
+    color: #2980b9;
+    font-weight: bold;
+    font-family: 'Nunito', sans-serif;
+}
+
+.alert-danger{
+    border-radius: 3px;
+    text-align: center;
+    position: relative;
+}
+
+/*.alert-danger:after {
+    content: '';
+    position: absolute;
+    background: rgba(231, 76, 60,1.0);
+    width: 10px;
+    height: 10px;
+    left: 50%;
+    top: -5px;
+    transform: rotate(45deg);
+    display: none;
+    z-index: -1;
+}*/
+
+
+
+@media (max-width: 767px)
+{
+    strong{
+        display: none;
+    }
+
+    #uploadbtn{
+        margin-top: 10px;
+    }
+
+    .row{
+        margin-bottom: 5px!important;
+    }
+
+    #Firstname,#Middlename{
+        margin-top: -20px;
+    }
+}
+
+/*--------------------------------------------header css---------------------------------------------*/
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
+
+:root {
+    --header-height: 3rem;
+    --nav-width: 68px;
+    --first-color: #4723D9;
+    --first-color-light: #AFA5D9;
+    --white-color: #F7F6FB;
+    --body-font: 'Nunito', sans-serif;
+    --normal-font-size: 1rem;
+    --z-fixed: 100
+}
+
+*,
+::before,
+::after {
+    box-sizing: border-box
+}
+
+body {
+    position: relative;
+    margin: var(--header-height) 0 0 0;
+    padding: 0 1rem;
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    transition: .5s;
+}
+
+a {
+    text-decoration: none
+}
+
+.header {
+    width: 100%;
+    height: var(--header-height);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    background-color: var(--white-color);
+    z-index: var(--z-fixed);
+    transition: .5s
+}
+
+.header_toggle {
+    color: var(--first-color);
+    font-size: 1.5rem;
+    cursor: pointer
+}
+
+.header_img {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden
+}
+
+#profile_pic {
+    font-size: 35px;
+    color: #2980b9;
+}
+
+.header_img img {
+    width: 40px
+}
+
+.l-navbar {
+    position: fixed;
+    top: 0;
+    left: -30%;
+    width: var(--nav-width);
+    height: 100vh;
+    background-color: var(--first-color);
+    padding: .5rem 1rem 0 0;
+    transition: .5s;
+    z-index: var(--z-fixed)
+}
+
+.nav {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden
+}
+
+.nav_logo,
+.nav_link {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    align-items: center;
+    column-gap: 1rem;
+    padding: .5rem 0 .5rem 1.5rem
+}
+
+.nav_logo {
+    margin-bottom: 2rem
+}
+
+.nav_logo-icon {
+    font-size: 1.25rem;
+    color: var(--white-color)
+}
+
+.nav_logo-name {
+    color: var(--white-color);
+    font-weight: 700
+}
+
+.nav_link {
+    position: relative;
+    color: var(--first-color-light);
+    margin-bottom: 1.5rem;
+    transition: .3s
+}
+
+.nav_link:hover {
+    color: var(--white-color)
+}
+
+.nav_icon {
+    font-size: 1.25rem
+}
+
+.show {
+    left: 0
+}
+
+.body-pd {
+    padding-left: calc(var(--nav-width) + 1rem)
+}
+
+.active1 {
+    color: var(--white-color)
+}
+
+.active1::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 2px;
+    height: 32px;
+    background-color: var(--white-color)
+}
+
+.height-100 {
+    height: 100vh
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        margin: calc(var(--header-height) + 1rem) 0 0 0;
+        padding-left: calc(var(--nav-width) + 2rem)
+    }
+
+    .header {
+        height: calc(var(--header-height) + 1rem);
+        padding: 0 2rem 0 calc(var(--nav-width) + 2rem)
+    }
+
+    .header_img {
+        width: 40px;
+        height: 40px
+    }
+
+    .header_img img {
+        width: 45px
+    }
+
+    .l-navbar {
+        left: 0;
+        padding: 1rem 1rem 0 0
+    }
+
+    .show {
+        width: calc(var(--nav-width) + 156px)
+    }
+
+    .body-pd {
+        padding-left: calc(var(--nav-width) + 188px)
+    }
+}
+
+
+/*----------------------------------------Status Css-----------------------------------------------------*/
+
+
+
+.box {
+   width:1000px;
+   margin:0;
+   padding-right: 100px;
+}
+
+.tab-pane{
+    background-color: #fff;
+    /*border: 1px solid #2c3e50;*/
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+h2{
+    cursor: default;
+}
+
+/* thead{
+    background-color: rgba(155, 89, 182,0.5);
+} */
+
+.box ul li a{
+    text-decoration: none;
+    color: #fff;
+    transition: 0.5s;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.box ul li a:hover{
+    color: #000;
+    background-color: #fff;
+}
+
+.table th{
+    color: #34495e;
+    text-align: center;
+}
+
+.table td{
+    color: #2980b9;
+    text-align: center;
+}
+
+
+/*-------------------------------------Modal Css-------------------------------------------*/
+
+
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 2000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  /*overflow: auto;*/ /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  animation-name: fadeIn;
+  animation-duration: 0.4s
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  top: 90px;
+  left: 122px;
+  background-color: #fefefe;
+  width: 80%;
+  height: 550px;
+  animation-name: slideIn;
+  animation-duration: 0.4s
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+.modal-body {
+  position: relative;
+  height: 550px;
+  overflow: auto;
+  padding: 2px 16px;
+}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+/* Add Animation */
+@-webkit-keyframes slideIn {
+  from {bottom: -300px; opacity: 0} 
+  to {bottom: 0; opacity: 1}
+}
+
+@keyframes slideIn {
+  from {bottom: -300px; opacity: 0}
+  to {bottom: 0; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+  from {opacity: 0} 
+  to {opacity: 1}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0} 
+  to {opacity: 1}
+}
+
+/*-------------------------View Form Css------------------------*/
+
+.modal-body h3{
+    color: #673AB7;
+}
+
+.modal-body h4{
+    background-color: #8e44ad;
+    text-align: center;
+    border-radius: 5px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-left: 15px;
+    color: #fff;
+    margin-top: -19px;
+}
+
+.modal-body .container h5{
+    font-weight: 550;
+    font-size: 17px;
+}
+
+.modal-body .container h6{
+    color: #8e44ad;
+}
+
+.modal-body .container .row{
+    margin-bottom: 35px;
+}
+
+.style{
+    margin-top: 50px;
+}
+
+/* --------------------------------------ViewStatus Modal Css--------------------------- */
+.modal1 {
+    display: none; /*Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    /*overflow: auto;*/ /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    animation-name: fadeIn;
+    animation-duration: 0.4s
+  }
+
+.modal-content1{
+    position: relative;
+    top: 35%;
+    left: 13%;
+    width: 855px;
+}
+
+.modal-body1{
+    width: 100%;
+    background: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 50px 35px 10px 35px;
+  }
+  .modal-body1 .progress-bar1{
+    width: 100%;
+    display: flex;
+    margin: 40px 0;
+    user-select: none;
+  }
+  .modal-body1 .progress-bar1 .step{
+    text-align: center;
+    width: 100%;
+    position: relative;
+  }
+  .modal-body1 .progress-bar1 .step p{
+    font-weight: 500;
+    font-size: 18px;
+    color: #000;
+    margin-bottom: 8px;
+  }
+  .progress-bar1 .step .bullet{
+    height: 25px;
+    width: 25px;
+    border: 2px solid #000;
+    display: inline-block;
+    border-radius: 50%;
+    position: relative;
+    transition: 0.2s;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 25px;
+  }
+  .progress-bar1 .step .bullet.active{
+    border-color: #d43f8d;
+    background: #d43f8d;
+  }
+  .progress-bar1 .step .bullet span{
+    position: absolute;
+    left: 50%;
+    top: -7%;
+    transform: translateX(-50%);
+  }
+  .progress-bar1 .step .bullet.active span{
+    display: none;
+  }
+  .progress-bar1 .step .bullet:before,
+  .progress-bar1 .step .bullet:after{
+    position: absolute;
+    content: '';
+    bottom: 11px;
+    right: -232px;
+    height: 3px;
+    width: 225px;
+    background: #262626;
+  }
+  .progress-bar1 .step .bullet.active:after{
+    background: #d43f8d;
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: animate 0.3s linear forwards;
+  }
+  @keyframes animate {
+    100%{
+      transform: scaleX(1);
+    }
+  }
+  .progress-bar1 .step:last-child .bullet:before,
+  .progress-bar1 .step:last-child .bullet:after{
+    display: none;
+  }
+  .progress-bar1 .step p.active{
+    color: #d43f8d;
+    transition: 0.2s linear;
+  }
+  .progress-bar1 .step .check{
+    position: absolute;
+    left: 50%;
+    top: 73%;
+    font-size: 15px;
+    transform: translate(-50%, -50%);
+    display: none;
+  }
+  .progress-bar1 .step .check.active{
+    display: block;
+    color: #fff;
+  }
+  .close1{
+    cursor: pointer;
+    font-size: 35px;
+    position: absolute;
+    top: 0;
+    left: 40px;
+  }
+  .formStatusheading{
+    border-bottom: 1px solid #000000;
+    position: absolute;
+    top: 27px;
+    left: 43%;
+    font-size: 25px;
+  }
+
+  /* -----------------------------------View Image Css------------------------------------ */
+
+  .image_style{
+      width: 100%;
+  }

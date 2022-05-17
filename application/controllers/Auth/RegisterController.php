@@ -284,6 +284,7 @@ class RegisterController extends CI_Controller
     {
         $this->session->unset_userdata('user_id');
         $this->session->unset_userdata('role_id');
+        $this->session->unset_userdata('dept_id');
 
         $this->session->set_flashdata('success', 'You are  successfully logged out');
 
@@ -455,7 +456,10 @@ class RegisterController extends CI_Controller
 
                     $this->session->set_userdata('user_id', $user->sevarth_id);
                     $this->session->set_userdata('role_id', $user->role_id);
-                    
+                    $this->session->set_userdata('dept_id', $user->dept_id);
+                    $this->session->set_userdata('user', $user);
+
+
                     $this->session->set_flashdata('success', 'Login Successful'); 
                     
                     // if user if not verified

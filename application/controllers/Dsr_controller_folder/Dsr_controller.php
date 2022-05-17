@@ -45,15 +45,14 @@ class Dsr_controller extends CI_Controller {
 
 	public function dept_dsr()
 	{
-		
-		
-
-
+	
 		$this->load->view('dsr/dept_dsr');
 
 	}
 	public function dept_view()
 	{
+		 
+		// print_r($dept);
 		$result['data']=$this->Dsr_model->get_comp_dsr();
 		$this->load->view('dsr/dept_view' ,$result);
 
@@ -67,6 +66,7 @@ class Dsr_controller extends CI_Controller {
 			$data['msg_to']=$this->input->post('msg_to');
 			$data['message']=$this->input->post('message');
 			$data['view_details']=$this->input->post('view_details');
+			$data['dept'] = $dept;
 			
 			$response=$this->Dsr_model->send_request($data);
 			if($response==true){
@@ -88,8 +88,11 @@ class Dsr_controller extends CI_Controller {
 		$role_id = $this->session->userdata("role_id");
 		$user_id = $this->session->userdata("user_id");
 
+		print_r(role_id);
 		//if current user is HOD
+
 		if($role_id == 2){
+
 
 			$user = $this->Dsr_model->getEmployeeById($user_id);
 			$d = "computer";
@@ -97,10 +100,10 @@ class Dsr_controller extends CI_Controller {
 			$department = $user->dept_id;
 
 			if($department == "1"){
-				$d = "CS"
+				$d = "CS";
 			}
 			else if($department == "2"){
-				$d = "IT"
+				$d = "IT";
 			}
 
 

@@ -60,7 +60,7 @@
                 <span class="ms-1 d-none d-sm-inline">Applied Trainings</span> </a>
         </li>
         <li class="nav-item py-2">
-            <a href="<?php echo base_url()."index.php/Dsr_controller_folder/Dsr_controller/dept_view?dept=Computer" ?>"
+            <a href="<?php echo base_url()."index.php/Dsr_controller_folder/Dsr_controller/dept_view?dept=$dept" ?>"
                 class=" px-0 align-middle">
                 <span class="ms-1 d-none d-sm-inline">DSR</span> </a>
         </li>
@@ -79,5 +79,7 @@
                 <span class="ms-1 d-none d-sm-inline">Notifications</span> </a>
         </li>
     </ul>
+   
+    
 
 </nav>

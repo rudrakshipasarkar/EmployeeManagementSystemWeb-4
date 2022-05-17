@@ -108,7 +108,7 @@
       </div>
     
       <div class="col-sm-4">
-        <a href="<?php echo base_url().'index.php/Dsr_controller/dept_view?dept=Electrical';$_GET?>">
+        <a href="<?php echo base_url().'index.php/Dsr_controller_folder/Dsr_controller/dept_view?dept=Electrical';$_GET?>">
         <div class="card bg-dark text-white bg-opacity-40 " style="width: 30rem; display: inline-block" >
           <div class="card-body">
             <b><h3 class="card-title">Electrical</h3></b>

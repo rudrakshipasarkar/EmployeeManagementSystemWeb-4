@@ -131,7 +131,9 @@ if ($this->session->flashdata('msg')) {
                         <th scope="row"><?php echo $training['id'] ?></th>
 
                         <th scope="row"><?php echo $training['name'] ?></th>
-                        <th scope="row"><?php echo $training['duration'] ?></th>
+                        <th scope="row">
+                            <?php if ($training['duration'] < 8) {echo $training["duration"] . " days";} else {echo ceil(($training['duration'] % 365) / 7) . " weeks";}?>
+                        </th>
                         <th scope="row"><?php echo $training['start_date'] ?></th>
                         <th scope="row"><?php echo $training['end_date'] ?></th>
                         <th scope="row"><?php echo $training['org_name'] ?></th>

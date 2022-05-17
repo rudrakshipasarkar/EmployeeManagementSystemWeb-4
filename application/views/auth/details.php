@@ -31,9 +31,9 @@ if ($this->session->flashdata('msg')) {
 
                     <h2 class="text-center">Add Your Details!!</h2>
                     <?php
-$attributes = array('role' => 'form');
-echo form_open_multipart("Auth/RegisterController/details");
-?>
+                        $attributes = array('role' => 'form');
+                        echo form_open_multipart("Auth/RegisterController/details");
+                    ?>
                     <form action="" name="registerForm" id="registerForm signupform" class="signupform" method="post">
                         <div class="form-row">
                             <div class="form-group">

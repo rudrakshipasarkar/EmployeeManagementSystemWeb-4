@@ -6,6 +6,9 @@
     <div class="main">
 
         <section class="signup mt-5">
+            <div class="top-box py-3">
+
+            </div>
 
 
             <div class="container container_new">
@@ -27,10 +30,10 @@
 
                 <div class="signup-content">
 
-                    <h2 class="text-center">Apply For Training</h2>
+                    <h2 class="text-center">Add Completed Training</h2>
                     <?php
                         $attributes = array('role' => 'form');
-                        echo form_open_multipart("Employee/EmployeeController/apply_training");
+                        echo form_open_multipart("Employee/EmployeeController/add_completed_training");
                     ?>
 
                     <form action="" name="registerForm" id="registerForm signupform" class="signupform" method="post">
@@ -105,16 +108,6 @@
 
                         <div class="form-row">
 
-                            <div class="form-radio">
-                                <label for="apply_to">Apply To</label>
-                                <div class="form-flex">
-                                    <input type="radio" name="apply_to" value="1" id="1" checked="checked" />
-                                    <label for="male">HOD</label>
-
-                                    <input type="radio" name="apply_to" value="2" id="2" />
-                                    <label for="female">Principal</label>
-                                </div>
-                            </div>
 
                             <div class="form-group">
                                 <label for="training_type">Training Type</label>
@@ -132,13 +125,6 @@
 
                                 </select>
                             </div>
-
-
-
-
-                        </div>
-
-                        <div class="form-row">
 
                             <div class="form-group">
                                 <label for="pdf">Select PDF</label>

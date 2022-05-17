@@ -15,11 +15,15 @@ class HodController extends CI_Controller
     public function index()
     {
         // echo "Hello";
-        $this->load->view('templates/header.php');
-        $this->load->view('templates/navbar.php');
-        $this->load->view('templates/sidebar.php');
-        $this->load->view('dashboard/hod_dashboard.php');
-        $this->load->view('templates/footer.php');
+        $dept = $this->session->userdata('dept_id');
+        print_r($dept);
+        $data['dept'] = $dept;
+        print_r($data);
+        // $this->load->view('templates/header.php');
+        // $this->load->view('templates/navbar.php');
+        // $this->load->view('dashboard/hod_sidebar.php',$data);
+        // $this->load->view('dashboard/hod_dashboard.php');
+        // $this->load->view('templates/footer.php');
     }
 
     public function employee_details($employee){

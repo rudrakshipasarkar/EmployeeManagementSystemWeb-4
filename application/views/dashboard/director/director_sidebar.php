@@ -31,6 +31,11 @@
                 <span class="ms-1 d-none d-sm-inline">Show Employees</span> </a>
         </li>
         <li class="nav-item py-2">
+            <a href="<?php echo base_url()."cascontroller/formcontroller/JD" ?>"
+                class=" px-0 align-middle">
+                <span class="ms-1 d-none d-sm-inline">CAS</span> </a>
+        </li>
+        <li class="nav-item py-2">
             <a href="<?php echo base_url()."index.php/notification_controller/index" ?>"
                 class=" px-0 align-middle">
                 <span class="ms-1 d-none d-sm-inline">Notifications</span> </a>
