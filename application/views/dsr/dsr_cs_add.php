@@ -10,6 +10,19 @@
     <link rel="stylesheet" href="<?php echo base_url('/assets/css/dsr_style2.css');?>">
 </head>
 <body>
+
+<?php
+
+if ($this->session->flashdata('msg')) {
+    echo '
+        <div class="container">
+            <div class="alert alert-danger">
+                ' . $this->session->flashdata("msg") . '
+            </div>
+        </div>
+        ';
+}
+?>
     
     <div class="registration-form">
         
@@ -28,11 +41,11 @@
                 <?php echo form_error('DSR_no');?>
 
             </div>
-            <div class="form-group">
+            <!--<div class="form-group">
                 <input type="text" class="form-control item" name="Product_ID" id="Product_ID" placeholder="Product ID">
-                <?php echo form_error('Product_ID');?>
+                <?php //echo form_error('Product_ID');?>
 
-            </div>
+            </div>-->
             <div class="form-group">
                 <input type="date" class="form-control item" name="purchase_date" id="purchase_date" placeholder="Purchase Date">
                 <?php echo form_error('purchase_date');?>
@@ -91,19 +104,19 @@
             <label>&nbsp &nbsp Initial of HOD</label>
                 <select name="initial_HOD" class="form-control item" name="initial_HOD" id="initial_HOD" placeholder="Initial Of HOD">
                     <option value="select">--select--</option>
-                    <option value="computer">Computer</option>
-                    <option value="civil">Civil</option>
-                    <option value="electrical">Electrical</option>
-                    <option value="electronics">Electronics</option>
-                    <option value="mechanical">Mechanical</option>
+                    <option value="Computer">Computer</option>
+                    <option value="Civil">Civil</option>
+                    <option value="Electrical">Electrical</option>
+                    <option value="Electronicss">Electronics</option>
+                    <option value="Mechanical">Mechanical</option>
                     <option value="IT">IT</option>
-                    <option value="pharmacy">Pharmacy</option>
-                    <option value="chemical">Chemical</option>
-                    <option value="plastic_polymer">Plastic Polymer</option>
-                    <option value="girls_hostel1">Girls Hostel</option>
-                    <option value="boys_hostel">Boys Hostel</option>
-                    <option value="office">Office</option>
-                    <option value="library">Library</option>
+                    <option value="Pharmacy">Pharmacy</option>
+                    <option value="Chemical">Chemical</option>
+                    <option value="Plastic Polymer">Plastic Polymer</option>
+                    <option value="Girls Hostel">Girls Hostel</option>
+                    <option value="Boys Hostel">Boys Hostel</option>
+                    <option value="Office">Office</option>
+                    <option value="Library">Library</option>
 
                   </select>
                   <?php echo form_error('initial_HOD');?>

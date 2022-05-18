@@ -39,6 +39,7 @@ class Dsr_controller extends CI_Controller {
 
 	public function dsr_cs()
 	{
+		$this->load->library('session');
 		$result['data']=$this->Dsr_model->display_master_cs();
 		$this->load->view('dsr/view_cs',$result);
 	}
@@ -130,11 +131,13 @@ class Dsr_controller extends CI_Controller {
 	public function dsr_cs_add()
 	{
 		//$this->load->view('dsr_cs_add');
+		$this->load->library('session');
+
 
 		$this->load->model('Dsr_model');
         $this->form_validation->set_rules('Oraganization_ID','Oraganization ID','required|alpha_numeric');
         $this->form_validation->set_rules('DSR_no','DSR No.','required|integer');
-        $this->form_validation->set_rules('Product_ID','Product ID','required|is_unique[master_cs.Product_ID]|integer');
+        //$this->form_validation->set_rules('Product_ID','Product ID','required|is_unique[master_cs.Product_ID]|integer');
         $this->form_validation->set_rules('purchase_date','purchase date','required');
         $this->form_validation->set_rules('purchase_authority','Choose Authority','required');
         $this->form_validation->set_rules('supplier_name','Supplier Name','required');
@@ -157,20 +160,26 @@ class Dsr_controller extends CI_Controller {
 		{
 			 $data['Oraganization_ID'] = $this->input->post('Oraganization_ID');
 			 $data['DSR_no'] = $this->input->post('DSR_no');
-			 $data['Product_ID'] = $this->input->post('Product_ID');
+			 //$data['Product_ID'] = $this->input->post('Product_ID');
 			 $data['purchase_date'] = $this->input->post('purchase_date');
 			 $data['purchase_authority'] = $this->input->post('purchase_authority');
 			 $data['supplier_name'] = $this->input->post('supplier_name');
 			 $data['Supplier_Address'] = $this->input->post('Supplier_Address');
 			 $data['product_name'] = $this->input->post('product_name');
 			 $data['product_desc'] = $this->input->post('product_desc');
-			 $data['qty'] = $this->input->post('qty');
+			 $qty= $this->input->post('qty');
+			 $data['qty'] = $qty;
 			 $data['Price_Per_Quantity'] = $this->input->post('Price_Per_Quantity');
 			 //$data['price'] = $this->input->post('price');
 			 $data['initial_HOD'] = $this->input->post('initial_HOD');
-			 $data['Quantity_Distributed'] = $this->input->post('Quantity_Distributed');			
+			 $qtyDistributed = $this->input->post('Quantity_Distributed');
+			 $data['Quantity_Distributed'] = $qtyDistributed;			
 			 //$data['qty_remaining'] = $this->input->post('qty_remaining');
 			 $data['remarks'] = $this->input->post('remarks');
+
+			 if ($qtyDistributed <= $qty)
+			{
+
 			$response=$this->Dsr_model->add_cs($data);
 			if($response==true){
 			        echo "Records Saved Successfully";
@@ -181,8 +190,16 @@ class Dsr_controller extends CI_Controller {
 					echo "Insert error !";
 			}
 		}
+		else{
+			$this->session->set_flashdata('msg', "Quantity Distributed should not be greater than total Qtantity...");
+			redirect(base_url().'index.php/Dsr_controller_folder/Dsr_controller/dsr_cs_add');
+			
+		}
 	}
 	}
+}
+
+
 	public function dsr_cs_distribute_view()
 	{
 		$result['data']=$this->Dsr_model->display_cs_distribution();
@@ -193,12 +210,14 @@ class Dsr_controller extends CI_Controller {
 	{
 		//$this->load->view('distribute_items');
 		$this->load->model('Dsr_model');
+		$this->load->library('session');
 
         $this -> form_validation -> set_rules('qty_distributed' ,'Quantity Distributed' ,'required|integer');
-		$this -> form_validation -> set_rules('qty_remaining' ,'Quantity Remaining' ,'required|integer');
+		//$this -> form_validation -> set_rules('qty_remaining' ,'Quantity Remaining' ,'required|integer');
         $this -> form_validation -> set_rules('date_distributed' ,'Date Distributed' ,'required');
 		$this -> form_validation -> set_rules('head_initials' ,'Head Initials' ,'required');
 
+		
 
         if($this->form_validation->run() == false)
 		{
@@ -207,25 +226,52 @@ class Dsr_controller extends CI_Controller {
 		{
 	     	if($this->input->post('submit'))
 		  {
-		    $data['Product_ID']=$this->input->post('Product_ID');
+			
+			$a = $this->input->post('Product_ID');
+		    $data['Product_ID']=$a;
 			$data['qty_distributed']=$this->input->post('qty_distributed');
-			$data['qty_remaining']=$this->input->post('qty_remaining');
-			$data['date_distributed']=$this->input->post('date_distributed');
+			//$data['qty_remaining']=$this->input->post('qty_remaining');
+			$dateDistributed = $this->input->post('date_distributed');
+			$data['date_distributed']= $dateDistributed;
 			$data['head_initials']=$this->input->post('head_initials');
-		
-
+			
+			//$dateDistributed = $this->input->post('date_distributed');
+			//$purchaseDate = $this->input->get('purchaseDate');
+			$purchaseDate = $this->Dsr_model->get_date();
+			if ($dateDistributed >= $purchaseDate)
+			{
 			$response=$this->Dsr_model->dsr_cs_distribute_items($data);
 			if($response==true){
 				
 			        //echo "Records Saved Successfully";
-					
+					//$newQtyDistributed = 11144;
+					$newQtyDistributed =$this->input->get('newQtyDistributed');
+
+		    		$response=$this->Dsr_model->update_quantity($newQtyDistributed);
+					if($response==true)
+					{
 					redirect(base_url().'index.php/Dsr_controller_folder/Dsr_controller/dsr_cs_distribute_view');
 
-			}
+					}
+					else{
+						echo "Insert error !";
+					}
+				}
 			else{
 					echo "Insert error !";
 			}
+		   }
+		   else{
+
+			$this->session->set_flashdata('msg', "Invalid Distribution date.....");
+			redirect(base_url().'index.php/Dsr_controller_folder/Dsr_controller/dsr_cs_distribute_items?product_id='.$a.'');
+			
+
+		   }
+
+
 		  }
+	
 	    }
 	}
 

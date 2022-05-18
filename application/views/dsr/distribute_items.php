@@ -10,6 +10,19 @@
     <link href="<?php echo base_url('/assets/css/dsr_style2.css');?>"  rel="stylesheet" />
 </head>
 <body>
+<body>
+<?php
+
+if ($this->session->flashdata('msg')) {
+    echo '
+        <div class="container">
+            <div class="alert alert-danger">
+                ' . $this->session->flashdata("msg") . '
+            </div>
+        </div>
+        ';
+}
+?>
     
     <div class="registration-form">
         
@@ -30,11 +43,6 @@
 
             </div>
 
-            <div class="form-group">
-                <input type="text" class="form-control item" name= "qty_remaining" id="qty_remaining" placeholder="Quantity Remaining">
-                <?php echo form_error('qty_remaining');?>
-
-            </div>
 
             <div class="form-group">
                 <input type="date" class="form-control item" name= "date_distributed" id="date_distributed" placeholder="Date of Distributed">
@@ -42,21 +50,22 @@
 
             </div>
 
+            
             <div class="form-group">
                 <select name="head_initials" class="form-control item"  id="head_initials">
-                    <option value="computer">Computer</option>
-                    <option value="civil">Civil</option>
-                    <option value="electrical">Electrical</option>
-                    <option value="electronics">Electronics</option>
-                    <option value="mechanical">Mechanical</option>
+                    <option value="Computer">Computer</option>
+                    <option value="Civil">Civil</option>
+                    <option value="Electrical">Electrical</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Mechanical">Mechanical</option>
                     <option value="IT">IT</option>
-                    <option value="pharmacy">Pharmacy</option>
-                    <option value="chemical">Chemical</option>
-                    <option value="plastic_polymer">Plastic Polymer</option>
-                    <option value="girls_hostel1">Girls Hostel</option>
-                    <option value="boys_hostel">Boys Hostel</option>
-                    <option value="office">Office</option>
-                    <option value="library">Library</option>
+                    <option value="Pharmacy">Pharmacy</option>
+                    <option value="Chemical">Chemical</option>
+                    <option value="Plastic Polymer">Plastic Polymer</option>
+                    <option value="Girls Hostel">Girls Hostel</option>
+                    <option value="Boys Hostel">Boys Hostel</option>
+                    <option value="Office">Office</option>
+                    <option value="Library">Library</option>
                     <?php echo form_error('head_initials');?>
 
                   </select>
@@ -65,16 +74,12 @@
 
         <div class="form-group" 
 >
-                <input onclick="myFunction()" type="submit" id="submit" name="submit" class="btn btn-block create-account" value="Submit">
+                <input type="submit" id="submit" name="submit" class="btn btn-block create-account" value="Submit">
         </div>
         
         </form>
 
-        <script>
-        function myFunction() {
-            alert("Records Saved Successfully");
-        }
-        </script>
+    
     <!-- 
         
         <div class="social-media">

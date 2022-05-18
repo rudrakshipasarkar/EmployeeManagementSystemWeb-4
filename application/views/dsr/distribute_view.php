@@ -48,7 +48,7 @@
                  <tr>
                         <th scope="col">Product ID</th>
                         <th scope="col">Quantity Distributed</th>
-                        <th scope="col">Quantity Remaining</th>
+                        <!--<th scope="col">Quantity Remaining</th>-->
                         <th scope="col">Date Distributed</th>
                         <th scope="col">Head Office Initials</th>
                     </tr>
@@ -61,7 +61,7 @@
  
   echo "<td>".$row->Product_ID."</td>";
   echo "<td>".$row->qty_distributed."</td>";
-  echo "<td>".$row->qty_remaining."</td>";
+  //echo "<td>".$row->qty_remaining."</td>";
   echo "<td>".$row->date_distributed."</td>";
   echo "<td>".$row->head_initials."</td>";
   //echo "<td>".<a href="<?php echo base_url().'index.php/Dsr_controller_folder/Dsr_controller/distribute_items/' >" class="btn btn-primary">Edit</a>"</td>"

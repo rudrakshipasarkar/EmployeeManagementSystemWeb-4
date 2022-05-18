@@ -100,16 +100,26 @@
   echo "<td>".$row->supplier_name."</td>";
   echo "<td>".$row->product_name."</td>";
   echo "<td>".$row->product_desc."</td>";
-  echo "<td>".$row->qty."</td>";
+  $qty = $row->qty;
+  echo "<td>".$qty."</td>";
   echo "<td>".$row->Price_Per_Quantity."</td>";
   echo "<td>".$row->price."</td>";
   echo "<td>".$row->initial_HOD."</td>";
-  echo "<td>".$row->Quantity_Distributed."</td>";
+  $qtyDistributed = $row->Quantity_Distributed;
+  echo "<td>".$qtyDistributed."</td>";
   echo "<td>".$row->qty_remaining."</td>";
   echo "<td>".$row->remarks."</td>";
   echo "<td>".$row->last_edited."</td>";
   ?>
-  <td><a href="<?php echo base_url().'index.php/Dsr_controller_folder/Dsr_controller/dsr_cs_distribute_items?product_id='.$a.'';$_GET?>" class="btn btn-primary btn-lg active float-right" role="button" aria-pressed="true">DISTRIBUTE</a></td>
+   <td><a href="<?php 
+  if ($qtyDistributed == $qty )
+  {
+    echo base_url().'index.php/Dsr_controller_folder/Dsr_controller/dsr_cs';
+    
+  } else{
+    echo base_url().'index.php/Dsr_controller_folder/Dsr_controller/dsr_cs_distribute_items?product_id='.$a.'';
+  }
+  ?>" class="btn btn-primary btn-lg active float-right" role="button" aria-pressed="true">DISTRIBUTE</a></td>
 
 <?php
   echo "</tr>";

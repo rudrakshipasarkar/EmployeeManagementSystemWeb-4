@@ -32,12 +32,68 @@ class Dsr_model extends CI_Model {
     return true;
   }
 
+  public function get_date(){
+    $productID = $_GET['product_id'];
+    
+    $this->db->select("purchase_date");
+    $this->db->from("master_cs");
+    $this->db->where('Product_ID', $productID);
+    $que = $this->db->get();
+
+      foreach ($que->result('Dsr_model') as $user)
+      {
+              $purchaseDate = $user->purchase_date; // access attributes   
+      }
+
+      return $purchaseDate;
+    }
+
   function dsr_cs_distribute_items($data)
   {
     $this->db->insert('cs_distribution' , $data);   
     return true;
 
   }
+
+  function update_quantity($data)
+  {
+    $productID = $_GET['product_id'];
+    //$productID = 15;
+    $this->db->select("qty_distributed");
+    $this->db->from("cs_distribution");
+    $this->db->where('Product_ID', $productID);
+    $que = $this->db->get();
+
+      foreach ($que->result('Dsr_model') as $user)
+      {
+              $qtyDistributed = $user->qty_distributed; // access attributes   
+      }
+
+    $this->db->select("Quantity_Distributed");
+    $this->db->from("master_cs");
+    $this->db->where('Product_ID', $productID);
+    $quet = $this->db->get();
+
+      foreach ($quet->result('Dsr_model') as $use)
+      {
+              $OldqtyDistributed = $use->Quantity_Distributed; // access attributes   
+      }
+
+    $newQtyDistributed = $OldqtyDistributed + $qtyDistributed;
+    
+    //$query=$this->db->query("update master_cs SET Quantity_Distributed=$newQtyDistributed where Product_ID=$productID");
+	  //$this->db->update("master_cs", ['Quantity_Distributed', $newQtyDistributed]);
+    //$this->db->where('Product_ID', $productID);
+    
+    $data = array(
+    'Quantity_Distributed' => $newQtyDistributed,
+     );
+    $this->db->where('Product_ID', $productID);
+    $this->db->update('master_cs',$data);
+    //$query = $this->db->get();
+    return $newQtyDistributed;
+  }
+
 
   function send_request($data)
   {

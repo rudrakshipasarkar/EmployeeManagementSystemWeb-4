@@ -123,7 +123,7 @@
                  <tr>
                         <th scope="col">Product ID</th>
                         <th scope="col">Quantity Distributed</th>
-                        <th scope="col">Quantity Remaining</th>
+                       <!-- <th scope="col">Quantity Remaining</th>-->
                         <th scope="col">Date Distributed</th>
                         <th scope="col">Head Office Initials</th>
                         <th scope="col">Transfer</th>
@@ -138,7 +138,7 @@
   $a=$row->Product_ID;
   echo "<td>".$a."</td>";
   echo "<td>".$row->qty_distributed."</td>";
-  echo "<td>".$row->qty_remaining."</td>";
+  //echo "<td>".$row->qty_remaining."</td>";
   echo "<td>".$row->date_distributed."</td>";
   echo "<td>".$row->head_initials."</td>";
   ?>
