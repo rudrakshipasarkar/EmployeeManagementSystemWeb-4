@@ -10,11 +10,17 @@ class EmployeeController extends CI_Controller
     }
     public function index()
     {
+        //get session of user
+        $current_user_id = $this->session->userdata('user_id');
 
+        $current_user = $this->Auth_model->get_employee_by_id($current_user_id);
+
+      
+       
         $this->load->view('templates/header.php');
         $this->load->view('templates/navbar.php');
         $this->load->view('dashboard/employee/employee_sidebar.php');
-        $this->load->view('dashboard/employee/employee_dashboard.php');
+        $this->load->view('dashboard/employee/employee_dashboard.php', array('current_user' => $current_user));
         $this->load->view('templates/footer.php');
     }
 

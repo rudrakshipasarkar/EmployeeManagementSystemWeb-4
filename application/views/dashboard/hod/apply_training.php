@@ -11,30 +11,50 @@
 
         <section class="signup mt-5">
 
+            <div class="row">
+
+                <div>
+
+                    <?php
+
+
+                if ($this->session->flashdata('failure')) {
+                    echo '
+                                    <div class="container">
+                                    <div class="alert alert-danger">
+                                        ' . $this->session->flashdata("failure") . '
+                                    </div>
+                                    </div>
+                                    ';
+                }
+             ?>
+
+                    <?php
+
+
+                if ($this->session->flashdata('success')) {
+                    echo '
+                                    <div class="container">
+                                    <div class="alert alert-success">
+                                        ' . $this->session->flashdata("success") . '
+                                    </div>
+                                    </div>
+                                    ';
+                }
+                ?>
+                </div>
+
+            </div>
+
 
             <div class="container container_new">
-                <?php
-
-            if ($this->session->flashdata('msg')) {
-                echo '
-                    <div class="container">
-                        <div class="alert alert-danger">
-                            ' . $this->session->flashdata("msg") . '
-                        </div>
-                    </div>
-                    ';
-            }
-            ?>
-
-
-
 
                 <div class="signup-content">
 
                     <h2 class="text-center">Apply For Training</h2>
                     <?php
                         $attributes = array('role' => 'form');
-                        echo form_open_multipart("Employee/EmployeeController/apply_training");
+                        echo form_open_multipart("hod/HodController/apply_training");
                     ?>
 
                     <form action="" name="registerForm" id="registerForm signupform" class="signupform" method="post">
@@ -109,16 +129,7 @@
 
                         <div class="form-row">
 
-                            <div class="form-radio">
-                                <label for="apply_to">Apply To</label>
-                                <div class="form-flex">
-                                    <input type="radio" name="apply_to" value="1" id="1" checked="checked" />
-                                    <label for="1">HOD</label>
 
-                                    <input type="radio" name="apply_to" value="2" id="2" />
-                                    <label for="2">Principal</label>
-                                </div>
-                            </div>
 
                             <div class="form-group">
                                 <label for="training_type">Training Type</label>

@@ -56,6 +56,10 @@
             </ul>
         </li>
         <li class="nav-item py-2">
+            <a href="<?php echo base_url()."Hod/HodController/apply_training" ?>" class=" px-0 align-middle">
+                <span class="ms-1 d-none d-sm-inline">Apply Training</span> </a>
+        </li>
+        <li class="nav-item py-2">
             <a href="<?php echo base_url()."Hod/HodController/show_applied_trainings" ?>" class=" px-0 align-middle">
                 <span class="ms-1 d-none d-sm-inline">Applied Trainings</span> </a>
         </li>
@@ -74,12 +78,11 @@
         </li>
 
         <li class="nav-item py-2">
-            <a href="<?php echo base_url()."index.php/notification_controller/index" ?>"
-                class=" px-0 align-middle">
+            <a href="<?php echo base_url()."index.php/notification_controller/index" ?>" class=" px-0 align-middle">
                 <span class="ms-1 d-none d-sm-inline">Notifications</span> </a>
         </li>
     </ul>
-   
-    
+
+
 
 </nav>
