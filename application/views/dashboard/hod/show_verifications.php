@@ -3,18 +3,40 @@
 <section class="px-4 pt-5 mt-4 sec-main my-container">
 
     <div class="container py-4">
-        <?php
+        <div class="row">
 
-if ($this->session->flashdata('msg')) {
-    echo '
-        <div class="container">
-            <div class="alert alert-danger">
-                ' . $this->session->flashdata("msg") . '
+            <div>
+
+                <?php
+
+
+                if ($this->session->flashdata('failure')) {
+                    echo '
+                                    <div class="container">
+                                    <div class="alert alert-danger">
+                                        ' . $this->session->flashdata("failure") . '
+                                    </div>
+                                    </div>
+                                    ';
+                }
+             ?>
+
+                <?php
+
+
+            if ($this->session->flashdata('success')) {
+                echo '
+                                <div class="container">
+                                <div class="alert alert-success">
+                                    ' . $this->session->flashdata("success") . '
+                                </div>
+                                </div>
+                                ';
+            }
+            ?>
             </div>
+
         </div>
-        ';
-}
-?>
 
         <!-- Task Card -->
         <div class=" shadow-sm card-task p-3">

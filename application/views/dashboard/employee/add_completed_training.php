@@ -12,18 +12,41 @@
 
 
             <div class="container container_new">
-                <?php
 
-            if ($this->session->flashdata('msg')) {
-                echo '
-                    <div class="container">
-                        <div class="alert alert-danger">
-                            ' . $this->session->flashdata("msg") . '
-                        </div>
+                <div class="row">
+
+                    <div>
+
+                        <?php
+
+
+                            if ($this->session->flashdata('failure')) {
+                                echo '
+                                                <div class="container">
+                                                <div class="alert alert-danger">
+                                                    ' . $this->session->flashdata("failure") . '
+                                                </div>
+                                                </div>
+                                                ';
+                            }
+                        ?>
+
+                        <?php
+
+
+                        if ($this->session->flashdata('success')) {
+                            echo '
+                                            <div class="container">
+                                            <div class="alert alert-success">
+                                                ' . $this->session->flashdata("success") . '
+                                            </div>
+                                            </div>
+                                            ';
+                        }
+                        ?>
                     </div>
-                    ';
-            }
-            ?>
+
+                </div>
 
 
 

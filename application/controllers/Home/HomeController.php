@@ -56,13 +56,14 @@ class HomeController extends CI_Controller
         $department = $this->Employee_model->get_department_by_id($current_user['dept_id']);
         $organization = $this->Employee_model->get_organization_by_id($current_user['org_id']);
 
+        
         $data['current_user'] = $current_user;
         $data['department'] = $department['dept_name'];
         $data['organization'] = $organization['org_name'];
 
         $this->load->view('templates/header.php');
         $this->load->view('templates/navbar.php');
-        $this->load->view('dashboard/hod/hod_sidebar.php');
+        $this->load->view('dashboard/hod/hod_sidebar.php', $data);
         $this->load->view('dashboard/hod/hod_dashboard.php', $data);
         $this->load->view('templates/footer.php');
     }

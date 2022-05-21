@@ -16,12 +16,25 @@ class HodController extends CI_Controller
     public function index()
     {
         
-        
-
-        
         // echo "Hello";
-        $dept = $this->session->userdata('dept_id');
-        $data['dept'] = $dept;
+        $data['dept_id'] = $this->session->userdata('dept_id');
+        $data['dept'] = "";
+
+        // print_r( $data['dept_id']);
+
+        switch ($data['dept_id']) {
+            case "1":
+                $data['dept'] = "Computer";
+                break;
+            case "2":
+                $data['dept'] = "Electrical";
+                break;
+            case "3":
+                $data['dept'] = "IT";
+                break;
+            default:
+                $data['dept'] = "Computer";
+        }
         
         //get session of user
         $current_user_id = $this->session->userdata('user_id');
@@ -39,7 +52,7 @@ class HodController extends CI_Controller
         
         $this->load->view('templates/header.php');
         $this->load->view('templates/navbar.php');
-        $this->load->view('dashboard/hod/hod_sidebar.php');
+        $this->load->view('dashboard/hod/hod_sidebar.php', $data);
         $this->load->view('dashboard/hod/hod_dashboard.php', $data);
         $this->load->view('templates/footer.php');
 
@@ -95,7 +108,7 @@ class HodController extends CI_Controller
             );
             $this->load->library('upload', $config);
 
-            if ($this->upload->do_upload('pdf')) {
+            if (!$this->upload->do_upload('pdf')) {
                 $error = $this->upload->display_errors();
                 $this->session->set_flashdata('failure', $error);
 
