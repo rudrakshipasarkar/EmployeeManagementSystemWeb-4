@@ -108,7 +108,7 @@ class HodController extends CI_Controller
             );
             $this->load->library('upload', $config);
 
-            if (!$this->upload->do_upload('pdf')) {
+            if ($this->upload->do_upload('pdf')) {
                 $error = $this->upload->display_errors();
                 $this->session->set_flashdata('failure', $error);
 
@@ -160,13 +160,37 @@ class HodController extends CI_Controller
                         'training_status_id' => 2, // as hod is applying training so status is 2
                     );
 
-                    if ($this->Employee_model->insert_training($data)) {
-                        $this->session->set_flashdata('success', 'Training Applied Successfully');
-                        redirect('Hod/HodController/index');
-                    } else {
-                        $this->session->set_flashdata('failure', 'Unable to Apply Training');
-                        redirect('Hod/HodController/apply_training');
+
+                    if ($data['end_date'] == $data['start_date']) {
+                        $this->session->set_flashdata('failure', 'Start Date should not equal to end date');
+    
+                        $this->load->view('templates/header.php');
+                        $this->load->view('templates/navbar.php');
+                        $this->load->view('dashboard/employee/employee_sidebar.php');
+                        $this->load->view('dashboard/employee/apply_training.php', ['training_types' => $training_types]);
+                        $this->load->view('templates/footer.php');
+    
+                        
+                    }else if($data['end_date'] < $data['start_date']){
+                        $this->session->set_flashdata('failure', 'Start Date should not greater than end date');
+    
+                        $this->load->view('templates/header.php');
+                        $this->load->view('templates/navbar.php');
+                        $this->load->view('dashboard/employee/employee_sidebar.php');
+                        $this->load->view('dashboard/employee/apply_training.php', ['training_types' => $training_types]);
+                        $this->load->view('templates/footer.php');
+    
+                    }else{
+                        if ($this->Employee_model->insert_training($data)) {
+                            $this->session->set_flashdata('success', 'Training Applied Successfully');
+                            redirect('Hod/HodController/index');
+                        } else {
+                            $this->session->set_flashdata('failure', 'Unable to Apply Training');
+                            redirect('Hod/HodController/apply_training');
+                        }
                     }
+
+                    
 
                     
                     

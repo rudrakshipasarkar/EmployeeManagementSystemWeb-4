@@ -54,7 +54,7 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 // Module A: Login and Register
-$route['login']['GET'] = 'Auth/RegisterController/index';
+$route['login']['GET'] = 'Auth/RegisterController/login';
 $route['login']['POST'] = 'Auth/RegisterController/login';
 $route['register']['GET'] = 'Auth/RegisterController/register';
 $route['logout']['GET'] = 'Auth/RegisterController/logout';

@@ -154,7 +154,7 @@ class RegisterController extends CI_Controller
                 );
                 $this->load->library('upload', $config);
                 //experience pdf upload
-                if (!$this->upload->do_upload('experience')) {
+                if ($this->upload->do_upload('experience')) {
                     $error = $this->upload->display_errors();
                     $this->session->set_flashdata('failure', "experience ".$error);
                     $this->load->view('templates/header.php');
@@ -172,7 +172,7 @@ class RegisterController extends CI_Controller
                         'max_height' => '30000',
                     );
                     $this->load->library('upload', $config);
-                    if (!$this->upload->do_upload('qualification')) {
+                    if ($this->upload->do_upload('qualification')) {
                         $error = $this->upload->display_errors();
                         $this->session->set_flashdata('failure', $error);
                         $this->load->view('templates/header.php');
@@ -189,7 +189,7 @@ class RegisterController extends CI_Controller
                             'max_height' => '30000',
                         );
                         $this->load->library('upload', $config);
-                        if (!$this->upload->do_upload('photo')) {
+                        if ($this->upload->do_upload('photo')) {
                             $error = $this->upload->display_errors();
                             $this->session->set_flashdata('failure', $error);
                             $this->load->view('templates/header.php');
@@ -265,7 +265,7 @@ class RegisterController extends CI_Controller
         $selected_year = $date[0];
         $current_year = date('Y');
 
-        $selected_age = $current_year - $selected_year;
+        $selected_age = (int)$current_year - (int)$selected_year;
 
         
         if ($selected_age < 22) {
@@ -283,7 +283,7 @@ class RegisterController extends CI_Controller
         $selected_year = $date[0];
         $current_year = date('Y');
 
-        $selected_age =  $selected_year-$current_year;
+        $selected_age =  (int)$selected_year-(int)$current_year;
 
         
         if ($selected_age < 0) {

@@ -11,12 +11,12 @@ class EmployeeController extends CI_Controller
     public function index()
     {
         //get session of user
-$current_user_id = $this->session->userdata('user_id');
+        $current_user_id = $this->session->userdata('user_id');
 
-$current_user = $this->Auth_model->get_employee_by_id($current_user_id);
+        $current_user = $this->Auth_model->get_employee_by_id($current_user_id);
 
-$department = $this->Employee_model->get_department_by_id($current_user['dept_id']);
-$organization = $this->Employee_model->get_organization_by_id($current_user['org_id']);
+        $department = $this->Employee_model->get_department_by_id($current_user['dept_id']);
+        $organization = $this->Employee_model->get_organization_by_id($current_user['org_id']);
 
        
         $this->load->view('templates/header.php');
@@ -125,8 +125,8 @@ $organization = $this->Employee_model->get_organization_by_id($current_user['org
                     $this->load->view('templates/footer.php');
 
                     
-                }else if($data['end_date'] == $data['start_date']){
-                    $this->session->set_flashdata('failure', 'Start Date should not less than end date');
+                }else if($data['end_date'] < $data['start_date']){
+                    $this->session->set_flashdata('failure', 'Start Date should not greater than end date');
 
                     $this->load->view('templates/header.php');
                     $this->load->view('templates/navbar.php');
@@ -135,16 +135,16 @@ $organization = $this->Employee_model->get_organization_by_id($current_user['org
                     $this->load->view('templates/footer.php');
 
                 }else{
-                    echo $data['end_date']-$data['start_date'];
+                     if ($this->Employee_model->insert_training($data)) {
+                    $this->session->set_flashdata('success', 'Training Applied Successfully');
+                    redirect('Employee/EmployeeController/index');
+                    } else {
+                        $this->session->set_flashdata('failure', 'Unable to Apply Training');
+                        redirect('Employee/EmployeeController/apply_training');
+                    }
                 }
 
-                // if ($this->Employee_model->insert_training($data)) {
-                //     $this->session->set_flashdata('success', 'Training Applied Successfully');
-                //     redirect('Employee/EmployeeController/index');
-                // } else {
-                //     $this->session->set_flashdata('failure', 'Unable to Apply Training');
-                //     redirect('Employee/EmployeeController/apply_training');
-                // }
+              
 
             }
 
